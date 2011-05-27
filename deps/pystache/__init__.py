@@ -1,5 +1,5 @@
-from pystache.template import Template
-from pystache.view import View
+from deps.pystache.template import Template
+from deps.pystache.view import View
 
 def render(template, context=None, **kwargs):
     context = context and context.copy() or {}

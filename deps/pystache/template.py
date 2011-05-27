@@ -110,7 +110,7 @@ class Template(object):
     def render_partial(self, tag_name=None, context=None):
         """Renders a partial within the current context."""
         # Import view here to avoid import loop
-        from pystache.view import View
+        from deps.pystache.view import View
 
         view = View(context=context)
         view.template_name = tag_name

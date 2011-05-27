@@ -1,4 +1,4 @@
-from pystache import Template
+from deps.pystache import Template
 import os.path
 import re
 
