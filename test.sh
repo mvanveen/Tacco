@@ -1,1 +1,1 @@
-python tacco.py > test.html
+python tacco.py > tacco_test_output.html

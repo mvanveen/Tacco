@@ -10,7 +10,7 @@ Usage
 
 _Or..._
 
-    python tacco.py > test.html
+    python tacco.py > tacco_test_output.html
 
 Warning
 -------
