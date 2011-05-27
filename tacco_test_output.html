@@ -1,0 +1,444 @@
+<style>
+.source .hll { background-color: #ffffcc }
+.source  { background: #f8f8f8; }
+.source .c { color: #408080; font-style: italic } /* Comment */
+.source .err { border: 1px solid #FF0000 } /* Error */
+.source .k { color: #008000; font-weight: bold } /* Keyword */
+.source .o { color: #666666 } /* Operator */
+.source .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.source .cp { color: #BC7A00 } /* Comment.Preproc */
+.source .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.source .cs { color: #408080; font-style: italic } /* Comment.Special */
+.source .gd { color: #A00000 } /* Generic.Deleted */
+.source .ge { font-style: italic } /* Generic.Emph */
+.source .gr { color: #FF0000 } /* Generic.Error */
+.source .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.source .gi { color: #00A000 } /* Generic.Inserted */
+.source .go { color: #808080 } /* Generic.Output */
+.source .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.source .gs { font-weight: bold } /* Generic.Strong */
+.source .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.source .gt { color: #0040D0 } /* Generic.Traceback */
+.source .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.source .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.source .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.source .kp { color: #008000 } /* Keyword.Pseudo */
+.source .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.source .kt { color: #B00040 } /* Keyword.Type */
+.source .m { color: #666666 } /* Literal.Number */
+.source .s { color: #BA2121 } /* Literal.String */
+.source .na { color: #7D9029 } /* Name.Attribute */
+.source .nb { color: #008000 } /* Name.Builtin */
+.source .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.source .no { color: #880000 } /* Name.Constant */
+.source .nd { color: #AA22FF } /* Name.Decorator */
+.source .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.source .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.source .nf { color: #0000FF } /* Name.Function */
+.source .nl { color: #A0A000 } /* Name.Label */
+.source .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.source .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.source .nv { color: #19177C } /* Name.Variable */
+.source .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.source .w { color: #bbbbbb } /* Text.Whitespace */
+.source .mf { color: #666666 } /* Literal.Number.Float */
+.source .mh { color: #666666 } /* Literal.Number.Hex */
+.source .mi { color: #666666 } /* Literal.Number.Integer */
+.source .mo { color: #666666 } /* Literal.Number.Oct */
+.source .sb { color: #BA2121 } /* Literal.String.Backtick */
+.source .sc { color: #BA2121 } /* Literal.String.Char */
+.source .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.source .s2 { color: #BA2121 } /* Literal.String.Double */
+.source .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.source .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.source .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.source .sx { color: #008000 } /* Literal.String.Other */
+.source .sr { color: #BB6688 } /* Literal.String.Regex */
+.source .s1 { color: #BA2121 } /* Literal.String.Single */
+.source .ss { color: #19177C } /* Literal.String.Symbol */
+.source .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.source .vc { color: #19177C } /* Name.Variable.Class */
+.source .vg { color: #19177C } /* Name.Variable.Global */
+.source .vi { color: #19177C } /* Name.Variable.Instance */
+.source .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+  body {float: left; min-width:500px;}
+  .source {clear: both; min-width: 700px;float: right;}
+  '</style>
+  
+<div class="source"><pre>
+</pre></div>
+
+<h1>Tacco</h1>
+<p>Talk is cheap.  Tacco is free.
+</p>
+<img src='http://farm4.static.flickr.com/3217/2725569605_57c3d6a41a.jpg' />
+
+<p><a href="http://www.python.org/dev/peps/pep-0257/" title="PEP 257">Source</a>, <a href="http://www.flickr.com/photos/alanjcastonguay/2725569605/">Image</a>
+</p>
+
+<h2>Introduction</h2>
+<p>Tacco is a docco-inspired documenter for Python, attempting compliance with
+   <a href="http://www.python.org/dev/peps/pep-0257/" title="PEP 257">PEP 257</a>.
+</p>
+
+<h3>Why stick to just Python?</h3>
+<p>Most docco-style parsers merely grep for comment strings to find 
+   documentation.  This works great for a general purpose documenter (see pycco
+   if this is what you're looking for), but Tacco's design philosphy is to 
+   stick to pick a niche and excel at it.  By sticking with just Python, we 
+   can take advantage of the language's awesome, pre-existing documentation 
+   patterns and produce beautiful documentation while staying within the PEP 
+   style guidelines.
+</p>
+<div class="source"><pre><span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">  Tacco</span>
+<span class="sd">  =====</span>
+
+<span class="sd">  Talk is cheap.  Tacco is free.</span>
+
+<span class="sd">  &lt;img src=&#39;http://farm4.static.flickr.com/3217/2725569605_57c3d6a41a.jpg&#39; /&gt;</span>
+
+<span class="sd">  [Source] [1], [Image] [2]</span>
+
+<span class="sd">  [1]: http://farm4.static.flickr.com/3217/2725569605_57c3d6a41a.jpg</span>
+<span class="sd">  [2]: http://www.flickr.com/photos/alanjcastonguay/2725569605/</span>
+
+<span class="sd">  Introduction</span>
+<span class="sd">  ------------</span>
+<span class="sd">  Tacco is a docco-inspired documenter for Python, attempting compliance with</span>
+<span class="sd">  [PEP 257] [1].</span>
+<span class="sd">  </span>
+<span class="sd">  ### Why stick to just Python?</span>
+<span class="sd">  Most docco-style parsers merely grep for comment strings to find </span>
+<span class="sd">  documentation.  This works great for a general purpose documenter (see pycco</span>
+<span class="sd">  if this is what you&#39;re looking for), but Tacco&#39;s design philosphy is to </span>
+<span class="sd">  stick to pick a niche and excel at it.  By sticking with just Python, we </span>
+<span class="sd">  can take advantage of the language&#39;s awesome, pre-existing documentation </span>
+<span class="sd">  patterns and produce beautiful documentation while staying within the PEP </span>
+<span class="sd">  style guidelines.</span>
+
+<span class="sd">  [1]: http://www.python.org/dev/peps/pep-0257/ &quot;PEP 257&quot;</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">from</span>   <span class="nn">ast</span> <span class="kn">import</span> <span class="n">NodeVisitor</span>
+<span class="kn">import</span> <span class="nn">imp</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">from</span>   <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">izip_longest</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+</pre></div>
+
+<p> External Dependencies
+</p>
+<div class="source"><pre><span class="c">#~ External Dependencies</span>
+</pre></div>
+
+<hr />
+<div class="source"><pre><span class="c">#~ ---------------------</span>
+</pre></div>
+
+
+<div class="source"><pre><span class="c">#~ </span>
+
+<span class="kn">import</span> <span class="nn">deps.markdown</span> <span class="kn">as</span> <span class="nn">markdown</span>
+<span class="kn">import</span> <span class="nn">deps.pystache</span> <span class="kn">as</span> <span class="nn">pystache</span>
+<span class="kn">from</span> <span class="nn">pygments</span> <span class="kn">import</span> <span class="n">highlight</span>
+<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">PythonLexer</span>
+<span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
+
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">cssclass</span><span class="o">=</span><span class="s">&quot;source&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">DocVisitor</span><span class="p">(</span><span class="n">NodeVisitor</span><span class="p">):</span>
+</pre></div>
+
+<h1>Docstring Parsing</h1>
+<div class="source"><pre>  <span class="sd">&#39;&#39;&#39;Visits python file AST to grab docstrings.</span>
+
+<span class="sd">     Docstring Parsing</span>
+<span class="sd">     =================</span>
+
+<span class="sd">  &#39;&#39;&#39;</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">NodeVisitor</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_docs</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="k">def</span> <span class="nf">recurse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_docs</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">lineno</span><span class="p">]</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">get_docstring</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">NodeVisitor</span><span class="o">.</span><span class="n">generic_visit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">getDoc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_docs</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_docs</span>
+
+  <span class="k">def</span> <span class="nf">generic_visit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+</pre></div>
+
+<pre><code>
+</code></pre>
+<div class="source"><pre>    <span class="sd">&#39;&#39;&#39; Generic visitor function.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">NodeVisitor</span><span class="o">.</span><span class="n">generic_visit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">visit_ClassDef</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+</pre></div>
+
+<h2>Metacircular Class Docstring</h2>
+<p>This function gets all class docstrings.
+   Please see this documentation for more information.
+</p>
+<div class="source"><pre>    <span class="sd">&#39;&#39;&#39; Visits class definitions, grab docstrings.</span>
+
+<span class="sd">       Metacircular Class Docstring</span>
+<span class="sd">       ----------------------------</span>
+<span class="sd">       This function gets all class docstrings.</span>
+<span class="sd">       Please see this documentation for more information.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">recurse</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    
+  <span class="k">def</span> <span class="nf">visit_FunctionDef</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+</pre></div>
+
+<h2>Metacircular Function Docstring</h2>
+<p>This function returns docstrings associated to functions.  For example,
+   this function is grabbed by itself and returns this docstring.
+</p>
+<p>Please see this documentation for more information.
+</p>
+<div class="source"><pre>    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Metacircular Function Docstring</span>
+<span class="sd">       -------------------------------</span>
+<span class="sd">       This function returns docstrings associated to functions.  For example,</span>
+<span class="sd">       this function is grabbed by itself and returns this docstring.</span>
+
+<span class="sd">       Please see this documentation for more information.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">recurse</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+  
+<span class="k">class</span> <span class="nc">SectionContainer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</pre></div>
+
+<h1>Code Sections</h1>
+<div class="source"><pre>  <span class="sd">&#39;&#39;&#39; Stores documentation and code and outputs HTML.</span>
+<span class="sd">      </span>
+<span class="sd">      Code Sections</span>
+<span class="sd">      =============</span>
+
+<span class="sd">  &#39;&#39;&#39;</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span><span class="o">=</span> <span class="p">{}</span>
+
+  <span class="k">def</span> <span class="nf">addDoc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmtOrSection</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">cmtOrSection</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(())</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmtOrSection</span><span class="p">)</span>  <span class="o">==</span> <span class="mi">2</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="n">cmtOrSection</span><span class="p">])</span>
+    
+  <span class="k">def</span> <span class="nf">addDict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">({})</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">iteritems</span><span class="p">())</span>
+
+  <span class="k">def</span> <span class="nf">getDoc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span>
+
+  <span class="k">def</span> <span class="nf">getDocLength</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_doc</span><span class="o">.</span><span class="n">__len__</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">Parser</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">file</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fileObj</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_fileObj</span> <span class="o">=</span> <span class="n">fileObj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fileObj</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+    <span class="nb">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span> 
+    <span class="k">assert</span> <span class="nb">file</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;.py&#39;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_fileStr</span>  <span class="o">=</span> <span class="nb">file</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_sections</span> <span class="o">=</span> <span class="n">SectionContainer</span><span class="p">()</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_docVisitor</span> <span class="o">=</span> <span class="n">DocVisitor</span><span class="p">()</span>
+   
+    <span class="bp">self</span><span class="o">.</span><span class="n">_sections</span><span class="o">.</span><span class="n">addDoc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getModuleDoc</span><span class="p">())</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_sections</span><span class="o">.</span><span class="n">addDict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getDocstrs</span><span class="p">())</span>
+</pre></div>
+
+<p> Add marked documentation (like this line!).
+</p>
+<div class="source"><pre>     <span class="c">#~ Add marked documentation (like this line!).</span>
+    <span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_sections</span><span class="o">.</span><span class="n">addDoc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMarkedDoc</span><span class="p">())</span>
+
+  <span class="k">def</span> <span class="nf">getDocstrs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</pre></div>
+
+<pre><code>
+</code></pre>
+<div class="source"><pre>    <span class="sd">&#39;&#39;&#39;Gets source code docstrings and preprocesses them</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+</pre></div>
+
+<p> Parse source file for docstrings, and add the results to the container.
+</p>
+<div class="source"><pre>    <span class="c">#~ Parse source file for docstrings, and add the results to the container.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_docVisitor</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fileObj</span><span class="p">))</span>
+</pre></div>
+
+<p> According to PEP 257, the first docstring line is meant as a quick 
+</p>
+<div class="source"><pre>    <span class="c">#~ According to PEP 257, the first docstring line is meant as a quick </span>
+</pre></div>
+
+<p> summary.  Subequently, we trim the first line of the comment if the 
+</p>
+<div class="source"><pre>    <span class="c">#~ summary.  Subequently, we trim the first line of the comment if the </span>
+</pre></div>
+
+<p> docstring is greater than one line long, as its inclusion would be
+</p>
+<div class="source"><pre>    <span class="c">#~ docstring is greater than one line long, as its inclusion would be</span>
+</pre></div>
+
+<p> repetitive.
+</p>
+<div class="source"><pre>    <span class="c">#~ repetitive.</span>
+    <span class="n">pepScrub</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>  \
+                            <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">])</span> 
+                            <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="ow">or</span> <span class="n">x</span>
+                           
+    <span class="k">return</span><span class="p">(</span> <span class="nb">dict</span><span class="p">(</span> <span class="nb">map</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">pepScrub</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">))</span> <span class="p">)),</span>
+                       <span class="nb">filter</span> <span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">,</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_docVisitor</span><span class="o">.</span><span class="n">getDoc</span><span class="p">()</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()</span>
+                              <span class="p">))))</span>
+
+  <span class="k">def</span> <span class="nf">renderSection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+</pre></div>
+
+<h2>Section Rendering</h2>
+<p>Renders documents with markdown, and code sections with pygments.
+</p>
+<p>Get all sections in this source file and print the rendered results
+</p>
+<pre><code> parser  = Parser('tacco.py')
+ results = parser.getResults()
+ print map(parser.renderSection, results)
+</code></pre>
+<div class="source"><pre>    <span class="sd">&#39;&#39;&#39;Renders a code/comment documentation section into html</span>
+
+<span class="sd">       Section Rendering</span>
+<span class="sd">       -----------------</span>
+<span class="sd">       Renders documents with markdown, and code sections with pygments.</span>
+
+<span class="sd">       Get all sections in this source file and print the rendered results</span>
+
+<span class="sd">       &gt;&gt;&gt; parser  = Parser(&#39;tacco.py&#39;)</span>
+<span class="sd">       &gt;&gt;&gt; results = parser.getResults()</span>
+<span class="sd">       &gt;&gt;&gt; print map(parser.renderSection, results)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">docLength</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sections</span><span class="o">.</span><span class="n">getDocLength</span><span class="p">()</span>
+    <span class="n">results</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getResults</span><span class="p">()</span>
+
+    <span class="n">current</span><span class="p">,</span> <span class="n">mdTxt</span> <span class="o">=</span> <span class="p">((</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">docLength</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">results</span><span class="p">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> \
+                      <span class="ow">or</span> <span class="n">results</span><span class="p">[</span><span class="n">docLength</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">last</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</pre></div>
+
+<p> ###Parsing Test Code Sections
+</p>
+<div class="source"><pre>    <span class="c">#~ ###Parsing Test Code Sections</span>
+</pre></div>
+
+<p> Doctest code is often prepended with '&gt;&gt;&gt;' in a document.  We 
+</p>
+<div class="source"><pre>    <span class="c">#~ Doctest code is often prepended with &#39;&gt;&gt;&gt;&#39; in a document.  We </span>
+</pre></div>
+
+<p> preprocess the docstring with this line to make sure these lines of 
+</p>
+<div class="source"><pre>    <span class="c">#~ preprocess the docstring with this line to make sure these lines of </span>
+</pre></div>
+
+<p> code are displayed correctly.
+</p>
+<div class="source"><pre>    <span class="c">#~ code are displayed correctly.</span>
+    <span class="c"># TODO: Pygmentize code section?</span>
+
+    <span class="n">mdTxt</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">&#39;^[ </span><span class="se">\t</span><span class="s">]*&gt;&gt;&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;    &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mdTxt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)]</span>
+    <span class="c">#print str((last, last+len(mdTxt), current))</span>
+</pre></div>
+
+<p> get code
+</p>
+<div class="source"><pre>    <span class="c">#~ get code</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_code</span><span class="p">[</span><span class="n">last</span><span class="p">:</span><span class="n">current</span><span class="p">]</span>
+
+    <span class="k">print</span> <span class="n">highlight</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">code</span><span class="p">),</span> <span class="n">PythonLexer</span><span class="p">(),</span> <span class="n">formatter</span><span class="p">)</span>
+    <span class="c"># pygmentize code</span>
+
+    <span class="c"># Pop into section.  Bam.</span>
+    <span class="k">print</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mdTxt</span><span class="p">))</span>
+
+  <span class="k">def</span> <span class="nf">renderDoc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</pre></div>
+
+<h2>Pushing To Production</h2>
+<div class="source"><pre>    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">       Pushing To Production</span>
+<span class="sd">       ---------------------</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="p">{</span>  <span class="s">&#39;header&#39;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderSection</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+              <span class="s">&#39;body&#39;</span> <span class="p">:</span> <span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">renderSection</span><span class="p">,</span> 
+                         <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sections</span><span class="o">.</span><span class="n">getDocLength</span><span class="p">())</span>
+                        <span class="p">)}</span>
+
+  <span class="k">def</span> <span class="nf">getModuleDoc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</pre></div>
+
+<h2>Front Matter: Grabbing Module Documentation</h2>
+<p>Grabbing the docstring from the module with our visitor is unintuitive
+   (special case?).  Using inspect is an easy alternative. Below, we add 
+   the file path to system path to facilitate easy importation of the 
+   source file we want. This lets us grab the module level docstring 
+   easily.
+</p>
+<div class="source"><pre>    <span class="sd">&#39;&#39;&#39;Grabs module-level documentation.</span>
+
+<span class="sd">       Front Matter: Grabbing Module Documentation</span>
+<span class="sd">       -------------------------------------------</span>
+<span class="sd">       Grabbing the docstring from the module with our visitor is unintuitive</span>
+<span class="sd">       (special case?).  Using inspect is an easy alternative. Below, we add </span>
+<span class="sd">       the file path to system path to facilitate easy importation of the </span>
+<span class="sd">       source file we want. This lets us grab the module level docstring </span>
+<span class="sd">       easily.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">filePath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fileStr</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+    <span class="n">module</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fileStr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getdoc</span><span class="p">(</span><span class="n">module</span><span class="p">))</span>
+
+  <span class="k">def</span> <span class="nf">getMarkedDoc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</pre></div>
+
+<h2>What's Up With The Squigly Commments?</h2>
+<p>You must mean the lines starting with <code>#~</code>.
+</p>
+<p>Sometimes, a docstring isn't the appropriate place to put documentation.
+   You can include a comment as part of the source documentation by starting
+   the comment line with <code>#~</code>.
+</p>
+<div class="source"><pre>
+</pre></div>
+
+<h2>What's Up With The Squigly Commments?</h2>
+<p>You must mean the lines starting with <code>#~</code>.
+</p>
+<p>Sometimes, a docstring isn't the appropriate place to put documentation.
+   You can include a comment as part of the source documentation by starting
+   the comment line with <code>#~</code>.
+</p>
